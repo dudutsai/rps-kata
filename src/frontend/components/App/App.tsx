@@ -1,11 +1,16 @@
 import "./App.css";
-import React from "react";
-import { Messages } from "../../../shared/constants";
+import React, { Component } from "react";
+import { PlayForm } from "../PlayForm";
+import { play } from "../../../backend/playRPS";
 
-const App: React.FC = () => (
-  <div className="App">
-    <header className="App-header">{Messages.SplashMessage}</header>
-  </div>
-);
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <PlayForm play={play} />
+      </div>
+    );
+  }
+}
 
 export default App;

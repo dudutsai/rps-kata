@@ -59,7 +59,6 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "jest --verbose",
-    "test-journey": "codeceptjs run --steps",
     "lint:src": "eslint \"./src/**/*.{ts,tsx}\" --config \"./.eslintrc.json\"",
     "lint:fix": "eslint \"**/*.{ts,tsx,js,jsx}\" --fix"
   },
@@ -78,11 +77,8 @@
   "devDependencies": {
     "@types/enzyme": "^3.9.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
-    "@types/puppeteer": "^1.12.4",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
-    "@wdio/selenium-standalone-service": "^5.9.3",
-    "codeceptjs": "^2.1.4",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
@@ -97,10 +93,8 @@
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-react-hooks": "^1.5.0",
     "prettier": "^1.17.1",
-    "puppeteer": "^1.17.0",
     "react-test-renderer": "^16.8.6",
-    "ts-node-dev": "^1.0.0-pre.39",
-    "webdriverio": "^5.2.2"
+    "ts-node-dev": "^1.0.0-pre.39"
   },
   "jest": {
     "collectCoverageFrom": [
