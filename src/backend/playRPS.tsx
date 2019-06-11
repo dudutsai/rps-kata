@@ -1,6 +1,6 @@
 import { RPSThrow, Results } from "../shared/enums";
 
-export function play(player1: string, player2: string, ui: any) {
+export function play(player1: string, player2: string) {
   player1 = player1.toUpperCase();
   player2 = player2.toUpperCase();
   if (isInvalid(player1) || isInvalid(player2)) {
