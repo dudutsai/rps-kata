@@ -36,6 +36,10 @@ export class PlayForm extends Component<
     this.setState({ [name]: value });
   };
 
+  p2Wins() {
+    this.setState({ resultMessage: "Player 2 Wins!" });
+  }
+
   render() {
     return (
       <div>

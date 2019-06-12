@@ -4,19 +4,31 @@ import sinon from "sinon";
 
 describe("Test play", () => {
   let testSpy: any;
+  testSpy = {
+    p1Wins: sinon.stub().resolves(),
+    p2Wins: jest.fn(),
+    draw: sinon.stub().resolves(),
+    invalid: sinon.stub().resolves(),
+  };
 
   beforeAll(() => {
     testSpy = {
-      p1Wins: sinon.stub().resolves(),
-      p2Wins: sinon.stub().resolves(),
-      draw: sinon.stub().resolves(),
-      invalid: sinon.stub().resolves(),
+      p1Wins: jest.fn(),
+      p2Wins: jest.fn(),
+      draw: jest.fn(),
+      invalid: jest.fn(),
     };
+  });
+  afterEach(() => {
+    testSpy.p1Wins.mockClear();
+    testSpy.p2Wins.mockClear();
+    testSpy.draw.mockClear();
+    testSpy.invalid.mockClear();
   });
 
   it("Scissors vs Rock", () => {
     play(RPSThrow.Scissors, RPSThrow.Rock, testSpy);
-    expect(testSpy.p2Wins).toHaveBeenCalled();
+    expect(testSpy.p2Wins).toHaveBeenCalledTimes(1);
   });
   it("Paper vs Rock", () => {
     expect(play(RPSThrow.Paper, RPSThrow.Rock, testSpy)).toEqual(

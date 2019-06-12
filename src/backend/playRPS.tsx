@@ -18,7 +18,12 @@ export function play(player1: string, player2: string, ui: any) {
   ) {
     return Results.P1Wins;
   } else {
-    return Results.P2Wins;
+    ui.p2Wins();
+    return;
+  }
+
+  function handleResult(result: string) {
+    ui[result]();
   }
 
   function isInvalid(aThrow: string) {
