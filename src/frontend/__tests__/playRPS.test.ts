@@ -1,16 +1,8 @@
 import { play } from "../../backend/playRPS";
 import { RPSThrow, Results } from "../../shared/enums";
-import sinon from "sinon";
 
 describe("Test play", () => {
   let testSpy: any;
-  testSpy = {
-    p1Wins: sinon.stub().resolves(),
-    p2Wins: jest.fn(),
-    draw: sinon.stub().resolves(),
-    invalid: sinon.stub().resolves(),
-  };
-
   beforeAll(() => {
     testSpy = {
       p1Wins: jest.fn(),
