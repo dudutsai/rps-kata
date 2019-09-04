@@ -1,8 +1,8 @@
-import { play } from "../playRPS";
-import { RPSThrow, Results } from "../../shared/enums";
+import { playTheGame } from "../playRPS";
+import { FingerFormation, Results } from "../../shared/enums";
 import sinon from "sinon";
 
-describe("Test play", () => {
+describe("Test playTheGame", () => {
   let testSpy: any;
 
   beforeAll(() => {
@@ -15,55 +15,55 @@ describe("Test play", () => {
   });
 
   it("Scissors vs Rock", () => {
-    expect(play(RPSThrow.Scissors, RPSThrow.Rock)).toEqual(
+    expect(playTheGame(FingerFormation.Scissors, FingerFormation.Rock)).toEqual(
       Results.P2Wins,
     );
   });
   it("Paper vs Rock", () => {
-    expect(play(RPSThrow.Paper, RPSThrow.Rock)).toEqual(
+    expect(playTheGame(FingerFormation.Paper, FingerFormation.Rock)).toEqual(
       Results.P1Wins,
     );
   });
   it("Paper vs Scissors", () => {
-    expect(play(RPSThrow.Paper, RPSThrow.Scissors)).toEqual(
+    expect(playTheGame(FingerFormation.Paper, FingerFormation.Scissors)).toEqual(
       Results.P2Wins,
     );
   });
   it("Rock vs Paper", () => {
-    expect(play(RPSThrow.Rock, RPSThrow.Paper)).toEqual(
+    expect(playTheGame(FingerFormation.Rock, FingerFormation.Paper)).toEqual(
       Results.P2Wins,
     );
   });
   it("Rock vs Scissors", () => {
-    expect(play(RPSThrow.Rock, RPSThrow.Scissors)).toEqual(
+    expect(playTheGame(FingerFormation.Rock, FingerFormation.Scissors)).toEqual(
       Results.P1Wins,
     );
   });
   it("Scissors vs Paper", () => {
-    expect(play(RPSThrow.Scissors, RPSThrow.Paper)).toEqual(
+    expect(playTheGame(FingerFormation.Scissors, FingerFormation.Paper)).toEqual(
       Results.P1Wins,
     );
   });
   it("Rock vs Rock", () => {
-    expect(play(RPSThrow.Rock, RPSThrow.Rock)).toEqual(Results.Draw);
+    expect(playTheGame(FingerFormation.Rock, FingerFormation.Rock)).toEqual(Results.Draw);
   });
   it("Scissors vs Scissors", () => {
-    expect(play(RPSThrow.Scissors, RPSThrow.Scissors)).toEqual(
+    expect(playTheGame(FingerFormation.Scissors, FingerFormation.Scissors)).toEqual(
       Results.Draw,
     );
   });
   it("Paper vs Paper", () => {
-    expect(play(RPSThrow.Paper, RPSThrow.Paper)).toEqual(
+    expect(playTheGame(FingerFormation.Paper, FingerFormation.Paper)).toEqual(
       Results.Draw,
     );
   });
   it("Invalid vs Valid", () => {
-    expect(play("taco", RPSThrow.Paper)).toEqual(Results.Invalid);
+    expect(playTheGame("taco", FingerFormation.Paper)).toEqual(Results.Invalid);
   });
   it("Valid vs Inalid", () => {
-    expect(play(RPSThrow.Rock, "taco")).toEqual(Results.Invalid);
+    expect(playTheGame(FingerFormation.Rock, "taco")).toEqual(Results.Invalid);
   });
   it("Invalid vs Invalid", () => {
-    expect(play("taco", "cat")).toEqual(Results.Invalid);
+    expect(playTheGame("taco", "cat")).toEqual(Results.Invalid);
   });
 });

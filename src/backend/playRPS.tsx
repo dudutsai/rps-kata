@@ -1,6 +1,6 @@
-import { RPSThrow, Results } from "../shared/enums";
+import { FingerFormation, Results } from "../shared/enums";
 
-export function play(player1: string, player2: string) {
+export function playTheGame(player1: string, player2: string) {
   player1 = player1.toUpperCase();
   player2 = player2.toUpperCase();
   if (isInvalid(player1) || isInvalid(player2)) {
@@ -12,9 +12,9 @@ export function play(player1: string, player2: string) {
   }
 
   if (
-    (player1 === RPSThrow.Rock && player2 === RPSThrow.Scissors) ||
-    (player1 === RPSThrow.Paper && player2 === RPSThrow.Rock) ||
-    (player1 === RPSThrow.Scissors && player2 === RPSThrow.Paper)
+    (player1 === FingerFormation.Rock && player2 === FingerFormation.Scissors) ||
+    (player1 === FingerFormation.Paper && player2 === FingerFormation.Rock) ||
+    (player1 === FingerFormation.Scissors && player2 === FingerFormation.Paper)
   ) {
     return Results.P1Wins;
   } else {
@@ -23,9 +23,9 @@ export function play(player1: string, player2: string) {
 
   function isInvalid(aThrow: string) {
     const validThrows = [
-      RPSThrow.Rock,
-      RPSThrow.Scissors,
-      RPSThrow.Paper,
+      FingerFormation.Rock,
+      FingerFormation.Scissors,
+      FingerFormation.Paper,
     ];
     return !validThrows.includes(aThrow);
   }

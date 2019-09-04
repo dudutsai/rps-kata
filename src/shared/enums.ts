@@ -1,4 +1,4 @@
-export const RPSThrow = {
+export const FingerFormation = {
   Rock: "ROCK",
   Paper: "PAPER",
   Scissors: "SCISSORS",
