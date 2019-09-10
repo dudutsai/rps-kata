@@ -25,4 +25,7 @@ describe("Test the play logic", () => {
   it("play returns 'It's a tie!' in Scissors vs. Scissors", () => {
     expect(play("Scissors", "Scissors")).toEqual("It's a tie!");
   });
+  it("play returns 'It's a tie!' in Paper vs. Paper", () => {
+    expect(play("Paper", "Paper")).toEqual("It's a tie!");
+  });
 });
