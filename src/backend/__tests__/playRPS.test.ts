@@ -20,7 +20,6 @@ describe("Test playTheGame", () => {
     };
   });
   afterEach(() => {
-    testSpy.p1Wins;
     testSpy.p1Wins.mockClear();
     testSpy.p2Wins.mockClear();
     testSpy.draw.mockClear();
