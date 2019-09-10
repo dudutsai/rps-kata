@@ -12,9 +12,12 @@ export function playTheGame(player1: string, player2: string) {
   }
 
   if (
-    (player1 === FingerFormation.Rock && player2 === FingerFormation.Scissors) ||
-    (player1 === FingerFormation.Paper && player2 === FingerFormation.Rock) ||
-    (player1 === FingerFormation.Scissors && player2 === FingerFormation.Paper)
+    (player1 === FingerFormation.Rock &&
+      player2 === FingerFormation.Scissors) ||
+    (player1 === FingerFormation.Paper &&
+      player2 === FingerFormation.Rock) ||
+    (player1 === FingerFormation.Scissors &&
+      player2 === FingerFormation.Paper)
   ) {
     return Results.P1Wins;
   } else {
