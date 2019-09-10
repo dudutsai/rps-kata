@@ -92,6 +92,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-react-hooks": "^1.5.0",
+    "jest-enzyme": "^7.1.1",
     "prettier": "^1.17.1",
     "react-test-renderer": "^16.8.6",
     "ts-node-dev": "^1.0.0-pre.39"
@@ -102,8 +103,7 @@
       "!src/**/*.d.ts"
     ],
     "setupFiles": [
-      "react-app-polyfill/jsdom",
-      "<rootDir>/src/setupTests.ts"
+      "react-app-polyfill/jsdom"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.ts"
