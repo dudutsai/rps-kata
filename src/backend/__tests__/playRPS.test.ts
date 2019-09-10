@@ -19,4 +19,7 @@ describe("Test the play logic", () => {
   it("play returns 'p1 wins!' in Scissors vs. Paper", () => {
     expect(play("Scissors", "Paper")).toEqual("p1 wins!");
   });
+  it("play returns 'It's a tie!' in Rock vs. Rock", () => {
+    expect(play("Rock", "Rock")).toEqual("It's a tie!");
+  });
 });
