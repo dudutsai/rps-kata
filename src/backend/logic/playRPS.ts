@@ -1,3 +1,3 @@
 export function play() {
-  // Fix me!
+  return "p2 wins!";
 }
