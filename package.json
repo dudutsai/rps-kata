@@ -2,6 +2,13 @@
   "name": "xp-workshop-rps",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "jest --verbose --watchAll",
+    "lint:src": "eslint \"./src/**/*.{ts,tsx}\" --config \"./.eslintrc.json\"",
+    "lint:fix": "eslint \"**/*.{ts,tsx,js,jsx}\" --fix"
+  },
   "dependencies": {
     "@babel/core": "7.4.3",
     "@svgr/webpack": "4.1.0",
@@ -55,25 +62,6 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.2.0"
   },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "jest --verbose",
-    "lint:src": "eslint \"./src/**/*.{ts,tsx}\" --config \"./.eslintrc.json\"",
-    "lint:fix": "eslint \"**/*.{ts,tsx,js,jsx}\" --fix"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "@types/enzyme": "^3.9.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
@@ -96,6 +84,18 @@
     "prettier": "^1.17.1",
     "react-test-renderer": "^16.8.6",
     "ts-node-dev": "^1.0.0-pre.39"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "jest": {
     "collectCoverageFrom": [

@@ -2,7 +2,7 @@ import React from "react";
 import { mount, ReactWrapper, shallow } from "enzyme";
 import { PlayForm } from "../../components/PlayForm";
 
-describe("PlayForm tests", () => {
+describe("PlayForm renders the expected elements", () => {
   let fullMount: ReactWrapper;
 
   beforeEach(() => {
@@ -27,11 +27,27 @@ describe("PlayForm tests", () => {
     expect(p2InputElement).toExist();
   });
 
+  test("should render an element with id `count-element`", () => {
+    let countElement = fullMount.find("#count-element");
+    expect(countElement).toExist();
+  });
+});
+
+describe("Elements contain their default values", () => {
+  let fullMount: ReactWrapper;
+
+  beforeEach(() => {
+    fullMount = mount(<PlayForm />);
+  });
+
+  afterEach(() => {
+    fullMount.unmount();
+  });
   test("should have a default state of `count:0`", () => {
     expect(fullMount).toHaveState("count", 0);
   });
 
-  test("should render a `count-element` ...element which contains the default state 0", () => {
+  test("should render an element with id `count-element` which contains the default state 0", () => {
     let countElement = fullMount.find("#count-element");
     expect(countElement).toExist();
     expect(countElement.text()).toContain("Count:");
