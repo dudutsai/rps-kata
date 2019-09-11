@@ -1,32 +1,76 @@
 import React, { Component } from "react";
-
-interface IPlayFormState {
-  count: number;
+import { IPlayTheGame } from "../../../backend/playRPS";
+interface IPlayFormProps {
+  play?: any;
 }
 
-export class PlayForm extends Component<any, IPlayFormState> {
-  constructor(props: any) {
+interface IPlayFormState {
+  p1Throw?: string;
+  p2Throw?: string;
+  results?: string;
+}
+
+export class PlayForm extends Component<IPlayFormProps, IPlayFormState> {
+  constructor(props: IPlayFormProps) {
     super(props);
     this.state = {
-      count: 0,
+      p1Throw: "",
+      p2Throw: "",
+      results: "",
     };
   }
-  handleDecrementClick = () => {
-    this.setState({ count: this.state.count - 1 });
+
+  // Should fire off the play function
+  handleSubmitCall = () => {
+    const { p1Throw, p2Throw } = this.state;
+    this.props.play(p1Throw, p2Throw, this);
+    // this.setState({ results: res });
   };
-  handleIncrementClick = () => {
-    this.setState({ count: this.state.count + 1 });
+
+  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   };
+
+  p2Wins() {
+    this.setState({ results: "Player 2 Wins!" });
+  }
+  p1Wins() {
+    this.setState({ results: "Player 1 Wins!" });
+  }
+
+  drawRound() {
+    this.setState({ results: "Draw!" });
+  }
+
+  invalidGameThing() {
+    this.setState({ results: "Invalid" });
+  }
+
+  // Dependency invvvvverrrssionnnn
+
   render() {
-    const { count } = this.state;
     return (
-      <div id="playform-section">
+      <div id="playform-element">
         <div>PlayForm Placeholder</div>
-        <input id="p1Input" />
-        <input id="p2Input" />
-        <div id="count-element">Count: {count}</div>
-        <button onClick={this.handleIncrementClick}>+</button>
-        <button onClick={this.handleDecrementClick}>-</button>
+        <input
+          id="p1Input"
+          name="p1Throw"
+          onChange={this.handleInputChange}
+          value={this.state.p1Throw}
+        />
+        <input
+          id="p2Input"
+          name="p2Throw"
+          onChange={this.handleInputChange}
+          value={this.state.p2Throw}
+        />
+        <br />
+        <button id="submit-button" onClick={this.handleSubmitCall}>
+          Click Me
+        </button>
+        <br />
+        <div id="results-element">{this.state.results}</div>
       </div>
     );
   }

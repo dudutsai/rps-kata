@@ -1,14 +1,22 @@
 import { FingerFormation, Results } from "../shared/enums";
+// import { PlayForm } from "../frontend/components/PlayForm";
 
-export function playTheGame(player1: string, player2: string) {
+// type IUiType = typeof PlayForm.prototype;
+
+// type ICustomType = Pick<IUiType, "p2Wins" | "p1Wins" | "drawRound">;
+// let k: ICustomType;
+
+export function playTheGame(player1: string, player2: string, ui: any) {
   player1 = player1.toUpperCase();
   player2 = player2.toUpperCase();
   if (isInvalid(player1) || isInvalid(player2)) {
-    return Results.Invalid;
+    ui.invalidGameThing();
+    return;
   }
 
   if (player1 === player2) {
-    return Results.Draw;
+    ui.drawRound();
+    return;
   }
 
   if (
@@ -17,9 +25,11 @@ export function playTheGame(player1: string, player2: string) {
     (player1 === FingerFormation.Paper && player2 === FingerFormation.Rock) ||
     (player1 === FingerFormation.Scissors && player2 === FingerFormation.Paper)
   ) {
-    return Results.P1Wins;
+    ui.p1Wins();
+    return;
   } else {
-    return Results.P2Wins;
+    ui.p2Wins();
+    return;
   }
 
   function isInvalid(aThrow: string) {
@@ -31,3 +41,5 @@ export function playTheGame(player1: string, player2: string) {
     return !validThrows.includes(aThrow);
   }
 }
+
+export type IPlayTheGame = typeof playTheGame;
